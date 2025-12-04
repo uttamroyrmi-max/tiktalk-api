@@ -30,20 +30,20 @@ export default async function handler(req, res) {
   const ONESIGNAL_APP_ID = "8e414d3f-9a32-42a3-a562-857b63d925e8";
   const ONESIGNAL_API_KEY = "b47u7eau4ulmu4qpvnmpv67tt";
 
-  const payload = {
-    app_id: ONESIGNAL_APP_ID,
-    filters: [
-      { field: "tag", key: "uid", relation: "=", value: receiverId }
-    ],
-    headings: { en: senderName || "TikTalk" },
-    contents: { en: messageText },
-    priority: 10,
-    data: {
-      type,
-      chatId: senderId,
-      openUrl: `/main.html?chatId=${senderId}`
-    }
-  };
+   const payload = {
+  app_id: ONESIGNAL_APP_ID,
+  include_aliases: {
+    external_id: [receiverId] // ← matches the logged user
+  },
+  headings: { en: senderName || "TikTalk" },
+  contents: { en: messageText },
+  priority: 10,
+  data: {
+    type,
+    chatId: senderId,
+    openUrl: `/main.html?chatId=${senderId}`
+  }
+};
 
   try {
     const response = await fetch("https://onesignal.com/api/v1/notifications", {
