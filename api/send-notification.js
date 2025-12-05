@@ -28,7 +28,7 @@ export default async function handler(req, res) {
 
   // OneSignal Setup
   const ONESIGNAL_APP_ID = "8e414d3f-9a32-42a3-a562-857b63d925e8";
-  const ONESIGNAL_API_KEY = "b47u7eau4ulmu4qpvnmpv67tt";
+  const ONESIGNAL_API_KEY = "os_v2_app_rzau2p42gjbkhjlcqv5whwjf5dmmz3txlmuu5afkiv7xs6gnhvsq6vuvy4i2me3hvdti2xtthlxonisvak7y7qf47436avu2ozmcday";
 
    const payload = {
   app_id: ONESIGNAL_APP_ID,
