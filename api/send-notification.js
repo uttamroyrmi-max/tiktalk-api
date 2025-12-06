@@ -49,7 +49,7 @@ export default async function handler(req, res) {
 
 
   try {
-    const response = await fetch("https://api.onesignal.com/v1/notifications", {
+    const response = await fetch("https://api.onesignal.com/notifications", {
   method: "POST",
   headers: {
     "Content-Type": "application/json",
