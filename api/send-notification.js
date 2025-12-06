@@ -46,12 +46,12 @@ export default async function handler(req, res) {
 };
 
   try {
-    const response = await fetch("https://api.onesignal.com/notification", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Authorization": `Bearer ${ONESIGNAL_API_KEY}`
-      },
+    const response = await fetch("https://api.onesignal.com/v1/notifications", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+    "Authorization": `Basic ${ONESIGNAL_API_KEY}`
+  },
       body: JSON.stringify(payload)
     });
 
