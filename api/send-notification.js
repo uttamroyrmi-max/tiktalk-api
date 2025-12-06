@@ -32,19 +32,25 @@ export default async function handler(req, res) {
 
    const payload = {
   app_id: ONESIGNAL_APP_ID,
+
   include_aliases: {
     external_id: [receiverId]
   },
-  channel_for_external_user_ids: "push", // REQUIRED with external_id
+
+  channel_for_external_user_ids: "push", // REQUIRED 🚨
+  target_channel: "push", // REQUIRED 🚨
+
   headings: { en: senderName || "TikTalk" },
   contents: { en: messageText },
   priority: 10,
+
   data: {
     type,
     chatId: senderId,
     openUrl: `/main.html?chatId=${senderId}`
   }
 };
+
 
 
 
