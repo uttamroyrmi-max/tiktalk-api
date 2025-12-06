@@ -33,8 +33,9 @@ export default async function handler(req, res) {
    const payload = {
   app_id: ONESIGNAL_APP_ID,
   include_aliases: {
-    external_id: [receiverId] // ← matches the logged user
+    external_id: [receiverId]
   },
+  channel_for_external_user_ids: "push", // REQUIRED with external_id
   headings: { en: senderName || "TikTalk" },
   contents: { en: messageText },
   priority: 10,
@@ -44,6 +45,8 @@ export default async function handler(req, res) {
     openUrl: `/main.html?chatId=${senderId}`
   }
 };
+
+
 
   try {
     const response = await fetch("https://api.onesignal.com/v1/notifications", {
